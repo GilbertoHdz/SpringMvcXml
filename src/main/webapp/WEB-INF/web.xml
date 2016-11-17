@@ -5,6 +5,19 @@
 
 	<display-name>Spring Mvc 4 Xml</display-name>
 
+	<!-- Listener que es invocado cuando incia la aplicacion, y se crea y se 
+		ejecuta -->
+	<!-- antes que que cualquier servlet y su tarea es iniciar el root-context -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- Parametro utilizado para cargar el archivo en la ruta indicada -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/root-context.xml</param-value>
+	</context-param>
+
+
 	<!-- Declaracion del servlet de Spring -->
 	<servlet>
 		<servlet-name>mvc-dispatcher</servlet-name>
@@ -13,7 +26,7 @@
 		<!-- Archivo que configra el contexto de Spring -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring-servlet.xml</param-value>
+			<param-value>/WEB-INF/spring-context.xml</param-value>
 		</init-param>
 
 		<load-on-startup>1</load-on-startup>
